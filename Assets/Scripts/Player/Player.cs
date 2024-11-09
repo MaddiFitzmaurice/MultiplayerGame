@@ -1,6 +1,8 @@
+using System.Globalization;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     #region EXTERNAL DATA
     [SerializeField] private float _speed;
@@ -32,11 +34,15 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) { return; }
+
         InputTimer();
     }
 
     private void FixedUpdate()
     {
+        if (!IsOwner) { return; }
+
         Movement();
     }
 
