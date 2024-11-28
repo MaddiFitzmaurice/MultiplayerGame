@@ -25,6 +25,11 @@ public class Player : NetworkBehaviour
         _cam = Camera.main;
     }
 
+    public override void OnNetworkSpawn()
+    {
+        transform.position = new Vector2(Random.Range(-7, 8), Random.Range(-4, 5));
+    }
+
     private void OnEnable()
     {
         EventManager.EventSubscribe(EventType.PLAYER_MOVE, H_Movement);
