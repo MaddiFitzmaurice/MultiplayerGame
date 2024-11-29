@@ -84,7 +84,11 @@ public class Player : NetworkBehaviour
         Vector2 dir = mouseWorldPos - transform.position;
 
         transform.up = dir.normalized;
-        
+    }
+
+    public void Hit()
+    {
+        Debug.Log("HIT");
     }
 
     #region EVENT HANDLERS
